@@ -1,0 +1,10 @@
+Npm start starts a server and will carry index.html -> it carries our application
+Index.js contains app
+React app renders in index.html
+Function returning html tags are components
+Babel converts es6 into es5:
+    Features: 1. scope of the variables
+
+
+<button style="color":red;background:"> html
+<button style={{color:"red", "height":"10px"}}> react
