@@ -9,7 +9,7 @@ import { getReport as Thanujreport} from './Thanuj';//since the method names are
 import { iphone , car} from "./demo"//destructuring
 import { Abc } from './Arrowdemo';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));//react dom is virtual dom => lighter => faster => less comparisons => copied only few elements from dom
 root.render(
   <React.StrictMode>
     <Apppp />

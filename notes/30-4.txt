@@ -1,0 +1,41 @@
+js is dynamically typed langueage, no need to explicitly say the data type
+typescript = js+ datatype
+ts = var x:number
+
+function x():String{} => typescript
+The specifations like var,let etc are specified in ECMA script
+angular is by default built up in ts
+
+React is popular due to virtual dom.
+
+displaying the data to the user UI is called data binding
+
+react dom is virtual dom => lighter => faster => less comparisons => copied only few elements from dom
+diffing algo-> finding the diff in data in binding
+typescript = js+datatype
+data binding
+conditional rendering
+props
+
+tags must be closed
+
+component is a function which must return jsx, component starts with a capital letter
+js file with same name as components => recommended
+
+props is the way to pass info or data to component
+<Employee tech="java" />
+
+function Employee({tech}){
+    return <h1>I am working on {tech}</h1>
+}
+
+function Employee(props){
+    return <h1>I am working on {props.tech}</h1>
+}
+
+props is the data passed to a component
+
+In react we handle conditional rendering in js way\
+
+props is data passed from parent to child, read only
+props is an object
