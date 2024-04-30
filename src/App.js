@@ -10,7 +10,7 @@ import CakeList from './Components/CakeList'
 
 function App() {
   var name = "Thanuj Sai"
-
+  console.log(name)
   return (
     <div className="App">
       <div>
