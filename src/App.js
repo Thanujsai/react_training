@@ -5,17 +5,66 @@ import Home from './Components/Home';
 import Login from './Components/Login';
 import Navbar from './Components/Navbar';
 import {Button} from "antd";
-// import Cake from './Components/Cake';
-import CakeList from './Components/CakeList'
+import Cake from './Components/Cake';
+import CakeList from './Components/CakeList';
+import Slide from './Components/Carousel';
+import UsersList from './Components/UsersList';
+import Users from './Components/Users';
+import Datatable from './Components/Datatable';
+import Signup from './Components/Signup';
 
 function App() {
   var name = "Thanuj Sai"
   console.log(name)
+  const dataSource = [
+    {
+      key: '1',
+      name: 'Mike',
+      age: 32,
+      address: '10 Downing Street',
+    },
+    {
+      key: '2',
+      name: 'John',
+      age: 42,
+      // address: '10 Downing Street',
+    },
+    {
+      key: '3',
+      name: 'Chillar',
+      // age: 42,
+      // address: '10 Downing Street',
+    },
+  ];
+  
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+    },
+  ];
   return (
     <div className="App">
       <div>
       <Navbar />
+      <Signup />
       <label>{name}</label>
+      <Slide />
+      <Datatable data={dataSource}/>
+      {console.log("hey")}
+      <Users />
+      <UsersList />
       <CakeList />
       {/* <Cake name="hi" cost="1000" image="https://flowera.in/wp-content/uploads/2023/05/Heart-Shape-Red-velvet-cake.jpg"/> */}
       <Home/>

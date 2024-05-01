@@ -1,0 +1,12 @@
+.slider-container{
+    padding-right:100px;
+}
+
+.ant-carousel .slick-slide {
+    text-align: center;
+  }
+  
+.ant-carousel .slick-slide img {
+    display: inline-block;
+    vertical-align: middle;
+  }
