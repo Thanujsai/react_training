@@ -1,0 +1,18 @@
+map
+
+for the number of elements into array that function will be
+
+users.map(( => {
+    return(
+        That view which u want to display
+    )
+}))
+
+            {
+                users.map((user) => {return(<h1>{user}</h1>)})
+            }
+
+var y = x()
+var z = x
+
+z()
