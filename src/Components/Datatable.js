@@ -1,7 +1,7 @@
 import { Table } from "antd";
 import Users from "./Users";
 
-function Datatable({data}){//data is array of jsons
+function Datatable({data}){//data is array of jsons[{},{}]
     // console.log("data")
     // console.log(data)
     // var keys = Object.keys(data[0])
@@ -21,9 +21,9 @@ function Datatable({data}){//data is array of jsons
     // return <h1>hi</h1>
 
     var users = data
-    var totalkeys = []
+    var totalkeys = []//[a,b,c]
     data.forEach((each) => {
-        var keys = Object.keys(each)
+        var keys = Object.keys(each)//[a,b,c] => a,b,c
         totalkeys.push(...keys)
     })
     console.log("total keys", totalkeys)

@@ -3,6 +3,7 @@ import {Input} from 'antd'
 function SignUp(){
     var name,email,pass;
     function handleName(event){
+        console.log("Event",event);
         name=event.target.value;
     }
     function handleEmail(event){
@@ -17,10 +18,10 @@ function SignUp(){
     return(
         <>
             <h1>Create an Account</h1>
-            <Input placeholder="name" onChange={handleName} />
-            <Input placeholder="email" onChange={handleEmail}/>
-            <Input placeholder="password" type="password" onChange={handlePassword}/>
-            <button onClick={handleClick} >Signin</button>
+            <Input placeholder="name" onChange={handleName} style={{ width: '200px' }}/><br></br>
+            <Input placeholder="email" onChange={handleEmail} style={{ width: '200px' }}/><br></br>
+            <Input placeholder="password" type="password" onChange={handlePassword} style={{ width: '200px' }}/><br></br>
+            <button onClick={handleClick} >Signup</button>
         </>
     )
 }

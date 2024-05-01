@@ -58,14 +58,14 @@ function App() {
     <div className="App">
       <div>
       <Navbar />
-      <Signup />
-      <label>{name}</label>
+      {/* <label>{name}</label> */}
       <Slide />
+      <CakeList />
+      <UsersList />
       <Datatable data={dataSource}/>
       {console.log("hey")}
       <Users />
-      <UsersList />
-      <CakeList />
+      <Signup />
       {/* <Cake name="hi" cost="1000" image="https://flowera.in/wp-content/uploads/2023/05/Heart-Shape-Red-velvet-cake.jpg"/> */}
       <Home/>
       <Login />
