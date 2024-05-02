@@ -1,7 +1,7 @@
-import { Table } from "antd";
+import { Table, Button } from "antd";
 import Users from "./Users";
 
-function Datatable({data}){//data is array of jsons[{},{}]
+function Datatable({data,deleteUser}){//data is array of jsons[{},{}]
     // console.log("data")
     // console.log(data)
     // var keys = Object.keys(data[0])
@@ -36,8 +36,18 @@ function Datatable({data}){//data is array of jsons[{},{}]
             key:each
         })
     })
+    columns.push({
+        title:"Action",
+        render:(text,record,index) => {
+            return <Button onClick={() => {deleteUser(index)}} >Delete</Button>
+        }
+    })
 
-    return <Table dataSource={users} columns={columns} />
+    const onChange = (pagination, filters, sorter, extra) => {
+        console.log('params', pagination, filters, sorter, extra);
+      };
+
+    return <Table dataSource={users} columns={columns} onChange={onChange}/>
 }
 
 export default Datatable;
