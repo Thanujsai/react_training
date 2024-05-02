@@ -1,0 +1,56 @@
+to update we need state
+
+state is an object which needs to be updated
+once the state is updated, the component is re-rendered
+
+this object
+
+prev
+functions -- stateless
+classes -- stateful --power to update the UI
+
+now
+stateful state is being offered into functions using one word HOOKS
+
+hooks are functions, they provide stateful features
+
+function need state
+    useState is a Hook
+    hooks are functoins that start from the word use *****
+
+function X(){
+    return (
+        <>
+        </>
+    )
+}
+
+X is a component
+
+component is a functoin which returns jsx
+hooks must be used inside the functional component
+
+function X(){
+    function updateUsers(){
+        var x = useState(); // this is wrong since updateusers is a functoin therefore hooks cannot be used here, they can be used only in components
+    }
+}
+
+    hooks are functoins that start from the word use *****
+    hooks must be used at component level ****
+
+useState -- is a hook which provides powers to powerless, provides state to stateless components
+
+syntax => var[property,handlerFunction(setProperty)] = useState(initial value)
+var [ashu,setAshu] = useState("abc")//
+var[salary,setSalary] = useState(initialSalary)
+
+setSalary(upatedSalary)
+setAshu("def)
+
+default props
+function Card({location})
+
+filter,sort on table
+
+when edit button is hit , a form must come up and display all the data of that particular record already to edit => controlled input and two way data binding

@@ -12,6 +12,8 @@ import UsersList from './Components/UsersList';
 import Users from './Components/Users';
 import Datatable from './Components/Datatable';
 import Signup from './Components/Signup';
+import Meeting from './Components/Meeting';
+import Attendance from './Components/Attendance';
 
 function App() {
   var name = "Thanuj Sai"
@@ -58,8 +60,10 @@ function App() {
     <div className="App">
       <div>
       <Navbar />
+      <Attendance />
       {/* <label>{name}</label> */}
       <Slide />
+      <Meeting />
       <CakeList />
       <UsersList />
       <Datatable data={dataSource}/>
