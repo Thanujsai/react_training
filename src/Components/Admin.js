@@ -1,11 +1,11 @@
 import Datatable from "./Datatable";
 import { users } from "./data";
 
-export default function Admin(){//THIS Component is to display data at home page
-
-    var details;
+var details;
+function Admin(){//THIS Component is to display data at home page
 
     function editUser(index){
+        console.log("in admin")
         console.log("edit");
         console.log("index",index)
         console.log("data")
@@ -19,3 +19,5 @@ export default function Admin(){//THIS Component is to display data at home page
         </>
     )
 }
+
+export { Admin,details};

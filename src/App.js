@@ -23,6 +23,9 @@ import ChangePassword from './Components/ChangePassword';
 import Navigation from './Components/Navigation';
 import Success from './Components/Success';
 import Edit from './Components/Edit';
+import { useState } from 'react';
+import { users } from "./Components/data";
+import Admin from './Components/Admin';
 
 function App() {
   var name = "Thanuj Sai"
