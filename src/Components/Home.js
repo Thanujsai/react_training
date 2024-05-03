@@ -1,7 +1,7 @@
 import { Table, Button } from "antd";
 import Datatable from "./Datatable";
 import { useState } from "react";
-import Admin from "./Admin"
+import {Admin} from "./Admin"
 
 function Home(){
 
