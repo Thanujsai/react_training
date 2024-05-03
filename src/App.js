@@ -14,6 +14,15 @@ import Datatable from './Components/Datatable';
 import Signup from './Components/Signup';
 import Meeting from './Components/Meeting';
 import Attendance from './Components/Attendance';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Routing from './Components/Routing';
+import Loginn from './Components/Loginn';
+import Forgot from './Components/Forgot';
+import Signupp from './Components/Signupp';
+import ChangePassword from './Components/ChangePassword';
+import Navigation from './Components/Navigation';
+import Success from './Components/Success';
+import Edit from './Components/Edit';
 
 function App() {
   var name = "Thanuj Sai"
@@ -59,20 +68,33 @@ function App() {
   return (
     <div className="App">
       <div>
-      <Navbar />
-      <Attendance />
+      {/* <Navbar /> */}
+      {/* <Attendance /> */}
       {/* <label>{name}</label> */}
-      <Slide />
+      {/* <Routing /> */}
+      <BrowserRouter>
+      <Navigation />
+        <Routes>
+          <Route path='/' element={<Home/>}></Route>
+          <Route path='/login' element={<Loginn/>}></Route>
+          <Route path='/signup' element={<Signupp/>}></Route>
+          <Route path='/forgot' element={<Forgot/>}></Route>
+          <Route path='/changepassword' element={<ChangePassword />}></Route>
+          <Route path='/success' element={<Success />}></Route>
+          <Route path='/edit' element={<Edit />}></Route>
+        </Routes>
+      </BrowserRouter>
+      {/* <Slide />
       <Meeting />
       <CakeList />
       <UsersList />
       <Datatable data={dataSource}/>
       {console.log("hey")}
       <Users />
-      <Signup />
+      <Signup /> */}
       {/* <Cake name="hi" cost="1000" image="https://flowera.in/wp-content/uploads/2023/05/Heart-Shape-Red-velvet-cake.jpg"/> */}
-      <Home/>
-      <Login />
+      {/* <Home/>
+      <Login /> */}
         
         </div>
       {/* <input> */}{/*tags must be closed*/}

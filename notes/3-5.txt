@@ -1,0 +1,24 @@
+single page application
+page is one and the views are loaded on requirement based on the path
+
+npm start
+
+routing: defining routes, when we define some routes that whenever user will open railways I have to open train booking component
+
+/railways -> TrainBook
+
+navigation must happen on button click, link to the path
+wrap the element(which u want to perform when link is clicked) button with link component from react-router-dom
+
+<Link to="/path" />
+
+programatical navigatoin
+
+task : take data => if valid navigate => else throw error
+
+          <Route path='/success' element={<Success />}></Route>
+path = '/success/:id'
+
+Routes params --- "/path/:parametername"
+
+click on cake, cake details page -> show image details of cake

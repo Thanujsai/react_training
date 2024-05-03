@@ -28,7 +28,7 @@ function X(){
 X is a component
 
 component is a functoin which returns jsx
-hooks must be used inside the functional component
+hooks must be used inside the functional component i.e. fn which returns jsx
 
 function X(){
     function updateUsers(){

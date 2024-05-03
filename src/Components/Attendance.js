@@ -24,6 +24,45 @@ function Attendance(){
         console.log("det",[...details])
         setDetails([...details])
     }
+
+    const EditUser = (index) => {
+        console.log("index : ",index)
+        console.log("details : ",details)
+        var nameToBeChanged = details[index].name;
+        var passwordToBeChanged = details[index].password;
+        var emailToBeChanged = details[index].email;
+        console.log(nameToBeChanged)
+        console.log(emailToBeChanged)
+        console.log(passwordToBeChanged)
+
+        const [isOpen, setIsOpen] = useState(false);
+
+        const handleClick = (index) => {
+            setIsOpen(true)
+        }
+
+        const Form = () =>{
+            return (
+                <>
+                <Form>
+                  <input type="text" placeholder={nameToBeChanged}/>
+                  <input type="submit" />
+                </Form>
+                </>
+              );
+        }
+
+        return(
+            <>
+                {console.log("inside return statement")}
+                <h1>hit</h1>
+                return{<Form></Form>}
+                {console.log("after return statement")}
+            </>
+        )
+        
+    }
+
     function displayNames(){
         console.log("details")
         console.log(details)
