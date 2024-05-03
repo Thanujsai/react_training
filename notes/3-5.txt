@@ -8,7 +8,7 @@ routing: defining routes, when we define some routes that whenever user will ope
 /railways -> TrainBook
 
 navigation must happen on button click, link to the path
-wrap the element(which u want to perform when link is clicked) button with link component from react-router-dom
+wrap the element(which u want to perform when link is clicked) i.e. button with link component from react-router-dom
 
 <Link to="/path" />
 
