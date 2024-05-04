@@ -26,6 +26,7 @@ import Edit from './Components/Edit';
 import { useState } from 'react';
 import { users } from "./Components/data";
 import Admin from './Components/Admin';
+import TryNavigate from './Components/TryNavigate';
 
 function App() {
   var name = "Thanuj Sai"
@@ -85,6 +86,7 @@ function App() {
           <Route path='/changepassword' element={<ChangePassword />}></Route>
           <Route path='/success' element={<Success />}></Route>
           <Route path='/edit' element={<Edit />}></Route>
+          <Route path='/navigate' element={<TryNavigate />}></Route>
         </Routes>
       </BrowserRouter>
       {/* <Slide />
