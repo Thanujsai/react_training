@@ -27,6 +27,9 @@ import { useState } from 'react';
 import { users } from "./Components/data";
 import Admin from './Components/Admin';
 import TryNavigate from './Components/TryNavigate';
+import Bakery from './Components/Bakery';
+import CakeDetail from './Components/CakeDetail';
+import Cart from './Components/Cart';
 
 function App() {
   var name = "Thanuj Sai"
@@ -76,6 +79,7 @@ function App() {
       {/* <Attendance /> */}
       {/* <label>{name}</label> */}
       {/* <Routing /> */}
+      {/* <Navigation /> */}
       <BrowserRouter>
       <Navigation />
         <Routes>
@@ -87,6 +91,10 @@ function App() {
           <Route path='/success' element={<Success />}></Route>
           <Route path='/edit' element={<Edit />}></Route>
           <Route path='/navigate' element={<TryNavigate />}></Route>
+          <Route path='/cakeDetail/:name' element={<CakeDetail />}></Route>
+          <Route path='/bakery' element={<Bakery />}></Route>
+          <Route path='/cart' element={<Cart />}></Route>
+          
         </Routes>
       </BrowserRouter>
       {/* <Slide />

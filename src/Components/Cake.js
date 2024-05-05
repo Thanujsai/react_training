@@ -24,6 +24,8 @@ import {Card, Badge,Image, Space} from "antd";
 
 function Cake(props){
     var tag;
+    console.log("props")
+    console.log(props)
     console.log(props.cake.tag)//Bestseller
     if(props.cake.tag){
         tag=<p>{props.cake.tag}</p>;
@@ -33,7 +35,7 @@ function Cake(props){
         <Card style={{ width: 250, height:250, marginLeft: 20 }}>
             <Image preview={false} src={props.cake.image} width={150}></Image>
             <p>{props.cake.name}</p>
-            <p>{props.cake.price}</p>
+            <p>Cost : {props.cake.cost} Rs.</p>
         </Card>
         </Badge.Ribbon>
         </Space>
@@ -49,9 +51,9 @@ function Cake(props){
         height:250,
         margin:20
       }}>
-        <Image preview={true} src={props.cake.image} width={150}></Image>
+        <Image preview={false} src={props.cake.image} width={150}></Image>
         <p>{props.cake.name}</p>
-        <p>{props.cake.price}</p>
+        <p>Cost : {props.cake.cost} Rs.</p>
         {props.cake.tag && <p>{props.cake.tag}</p>}
     </Card>
     </Space>
