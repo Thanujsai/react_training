@@ -1,22 +1,24 @@
 import Cake from './Cake'
+import { Link } from 'react-router-dom/dist';
 
+var cake;
 function CakeList(){
-    var cake = [{name:"hi", cost:"1000", image:"https://m.media-amazon.com/images/I/418zBNWoVnS._AC_UF1000,1000_QL80_.jpg", tag:"Bestseller"},
-    {name:"chocolate cake", cost:"1000", image:"https://st4.depositphotos.com/10614052/25239/i/450/depositphotos_252391082-stock-photo-sweet-chocolate-cake-on-wooden.jpg", tag:"Must try"},
-    {name:"butterscoth cake", cost:"1000", image:"https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"},
-    {name:"chillar cake", cost:"1000", image:"https://www.doughandcream.com/wp-content/uploads/2023/04/2-1.jpeg"},
-    {name:"hi", cost:"1000", image:"https://m.media-amazon.com/images/I/418zBNWoVnS._AC_UF1000,1000_QL80_.jpg"},
-    {name:"chocolate cake", cost:"1000", image:"https://st4.depositphotos.com/10614052/25239/i/450/depositphotos_252391082-stock-photo-sweet-chocolate-cake-on-wooden.jpg"},
-    {name:"butterscoth cake", cost:"1000", image:"https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"},
-    {name:"chillar cake", cost:"1000", image:"https://www.doughandcream.com/wp-content/uploads/2023/04/2-1.jpeg"},
-    {name:"hi", cost:"1000", image:"https://m.media-amazon.com/images/I/418zBNWoVnS._AC_UF1000,1000_QL80_.jpg"},
-    {name:"chocolate cake", cost:"1000", image:"https://st4.depositphotos.com/10614052/25239/i/450/depositphotos_252391082-stock-photo-sweet-chocolate-cake-on-wooden.jpg"},
-    {name:"butterscoth cake", cost:"1000", image:"https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"},
-    {name:"chillar cake", cost:"1000", image:"https://www.doughandcream.com/wp-content/uploads/2023/04/2-1.jpeg"},
-    {name:"hi", cost:"1000", image:"https://m.media-amazon.com/images/I/418zBNWoVnS._AC_UF1000,1000_QL80_.jpg"},
-    {name:"chocolate cake", cost:"1000", image:"https://st4.depositphotos.com/10614052/25239/i/450/depositphotos_252391082-stock-photo-sweet-chocolate-cake-on-wooden.jpg"},
-    {name:"butterscoth cake", cost:"1000", image:"https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"},
-    {name:"chillar cake", cost:"1000", image:"https://www.doughandcream.com/wp-content/uploads/2023/04/2-1.jpeg"},
+    cake = [{name:"hi", cost:"1000", image:"https://m.media-amazon.com/images/I/418zBNWoVnS._AC_UF1000,1000_QL80_.jpg", tag:"Bestseller"},
+    {name:"chocolate-cake", cost:"1000", image:"https://st4.depositphotos.com/10614052/25239/i/450/depositphotos_252391082-stock-photo-sweet-chocolate-cake-on-wooden.jpg", tag:"Must try"},
+    {name:"butterscotch-cake", cost:"1000", image:"https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"},
+    {name:"chillar-cake", cost:"1000", image:"https://www.doughandcream.com/wp-content/uploads/2023/04/2-1.jpeg"},
+    {name:"Red-Velvet-Cake", cost:"1000", image:"https://m.media-amazon.com/images/I/418zBNWoVnS._AC_UF1000,1000_QL80_.jpg"},
+    {name:"Chocolate-Fudge-Cake", cost:"1000", image:"https://st4.depositphotos.com/10614052/25239/i/450/depositphotos_252391082-stock-photo-sweet-chocolate-cake-on-wooden.jpg"},
+    {name:"Lemon-Drizzle-Cake", cost:"1000", image:"https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"},
+    {name:"Carrot-Cake", cost:"1000", image:"https://www.doughandcream.com/wp-content/uploads/2023/04/2-1.jpeg"},
+    {name:"Black-Forest-Cake", cost:"1000", image:"https://m.media-amazon.com/images/I/418zBNWoVnS._AC_UF1000,1000_QL80_.jpg"},
+    {name:"Tiramisu-Cake", cost:"1000", image:"https://st4.depositphotos.com/10614052/25239/i/450/depositphotos_252391082-stock-photo-sweet-chocolate-cake-on-wooden.jpg"},
+    {name:"Strawberry-Short-cake", cost:"1000", image:"https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"},
+    {name:"Vanilla-Sponge-Cake", cost:"1000", image:"https://www.doughandcream.com/wp-content/uploads/2023/04/2-1.jpeg"},
+    {name:"Coffee-Cake", cost:"1000", image:"https://m.media-amazon.com/images/I/418zBNWoVnS._AC_UF1000,1000_QL80_.jpg"},
+    {name:"Pineapple-Upside-Down-Cake", cost:"1000", image:"https://st4.depositphotos.com/10614052/25239/i/450/depositphotos_252391082-stock-photo-sweet-chocolate-cake-on-wooden.jpg"},
+    {name:"Coconut-Cream-Cake", cost:"1000", image:"https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"},
+    {name:"Rainbow-Cake", cost:"1000", image:"https://www.doughandcream.com/wp-content/uploads/2023/04/2-1.jpeg"},
   ] 
   return(
     <>
@@ -36,7 +38,7 @@ function CakeList(){
         
         <div>
             {cake.map((cakeItem) => (
-                <Cake cake={cakeItem} />
+                <Link to={`/cakeDetail/${cakeItem.name}`} key={cakeItem.name}><Cake cake={cakeItem} /></Link>
             ))}
         </div>
         </row>
@@ -44,4 +46,4 @@ function CakeList(){
   )
 }
 
-export default CakeList;
+export {cake, CakeList};

@@ -33,7 +33,7 @@ function Loginn() {
         }
         else{
             console.log("in error")
-            setError("******dobbey******")
+            setError("Invalid credentials")
             console.log("error",error)
         }
         // return(<>
@@ -46,7 +46,7 @@ function Loginn() {
   return (
     <div>
         
-        {error == '******dobbey******' && <Alert type="error" message={error}/>}
+        {error == 'Invalid credentials' && <Alert type="error" message={error}/>}
         <input placeholder="UserName" type="text" onChange={changeUsername}></input><br></br>
         <input placeholder="Password" type="password" onChange={changePassword}></input><br></br><br></br>
         <Button onClick={click}>Login</Button>

@@ -4,7 +4,7 @@ import users from './Users';
 import { details } from './Admin';
 import {Text,Button} from 'antd';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Edit() {
   console.log("in edit method")
@@ -62,9 +62,12 @@ function Edit() {
       Gender : <input type="text" defaultValue={details.gender} onChange={changeGender}/><br></br>
       Age : <input type="text" defaultValue={details.age} onChange={changeAge}/><br></br>
       Phone : <input type="text" defaultValue={details.phone} onChange={changePhone}/><br></br><br></br>
-      <Button onClick={click}>Confirm</Button>
+      {/* <Link to="/"> */}
+        <Button onClick={click}>Confirm</Button>
+      {/* </Link> */}
     </>
   )
 }
 
 export default Edit
+//difference between Link and useNavigate hook??
