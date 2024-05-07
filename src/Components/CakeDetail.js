@@ -1,7 +1,7 @@
 // import React from 'react';
 // // import { cake } from './CakeList';
 // import { Image, Card, Space, Button } from 'antd';
-// import { Link } from 'react-router-dom/dist';
+import { Link } from 'react-router-dom/dist';
 
 // function CakeDetail(params) {
 //     const currentUrl = window.location.href;
@@ -68,7 +68,7 @@ export default function CakeDetail() {
   console.log(params.name)
   console.log("url")
   console.log("http://apibyauw.eu-4.evennode.com/api" + "/cake/" + params.name)
-  var [cakedetails, setCakedetails] = useState({});
+  var [cakedetails, setCakedetails] = useState();
   useEffect(() => {
     axios({
       url: "http://apibyauw.eu-4.evennode.com/api" + "/cake/" + params.name,
@@ -99,9 +99,12 @@ export default function CakeDetail() {
         <p>Name : {cakedetails.name}</p>
         <p>Price : {cakedetails.price}</p>
         <p>Description : {cakedetails.description}</p>
-        <Button style={{ float: "center", marginRight: "10px" }}>
+        {/* <Link to="/cart/:cakedetails.cakeid"> */}
+          <Button style={{ float: "center", marginRight: "10px" }}>
           Add to Cart
         </Button>
+        {/* </Link> */}
+        {/* <Link to={"/cakeDetail/"+data.cakeid}></Link> */}
       </div>
     // <div>
     //   <h1>Cake details component for {params.cakeid} </h1>

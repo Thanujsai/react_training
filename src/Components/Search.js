@@ -38,7 +38,7 @@ export default function Searchcakes(){
             return(
                 <Space direction="horizontal">
                 <Card>
-                    <Link to={"/detail/"+each.cakeid}><img src={each.image} style={{height:150, width:150}} /></Link>
+                    <Link to={"/cakeDetail/"+each.cakeid}><img src={each.image} style={{height:150, width:150}} /></Link>
                     <p>Name : {each.name}</p>
                     <p>Price : {each.price}</p>
                 </Card>
