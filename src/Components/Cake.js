@@ -1,66 +1,34 @@
-import {Card, Badge,Image, Space} from "antd";
-
-// function Cake(props){
-//     console.log(props)
-//     var data = {
-//         name:props.cake.name,
-//         price:props.cake.cost,
-//         image:props.cake.image
-//     }
-//     return(
-//         <Space direction="horizontal" size={16} style={{paddingTop:"50px"}}>
-//         <Card  style={{
-//             width: 250,
-//             height:250,
-//             margin:20
-//           }}>
-//             <Image preview={true} src={data.image} width={150}></Image>
-//             <p>{data.name}</p>
-//             <p>{data.price}</p>
-//         </Card>
-//         </Space>
-//     )
-// }
-
-function Cake(props){
-    var tag;
-    console.log("props")
+import { Card, Image, Space } from "antd";
+import { useNavigate, Link } from "react-router-dom";
+function Cake(props) {
+    console.log("props in cake")
     console.log(props)
-    console.log(props.cake.tag)//Bestseller
-    if(props.cake.tag){
-        tag=<p>{props.cake.tag}</p>;
-                return(
-                    <Space direction="horizontal" size={16} style={{paddingTop:"50px"}}>
-                 <Badge.Ribbon size="small" color="green" text={props.cake.tag} >
-        <Card style={{ width: 250, height:250, marginLeft: 20 }}>
-            <Image preview={false} src={props.cake.image} width={150}></Image>
-            <p>{props.cake.name}</p>
-            <p>Cost : {props.cake.cost} Rs.</p>
-        </Card>
-        </Badge.Ribbon>
-        </Space>
-     
-    )
-    }
-    else{
-        tag=null
-        return(
-            <Space direction="horizontal" size={16} style={{paddingTop:"50px"}}>
-    <Card  style={{
-        width: 250,
-        height:250,
-        margin:20
-      }}>
-        <Image preview={false} src={props.cake.image} width={150}></Image>
-        <p>{props.cake.name}</p>
-        <p>Cost : {props.cake.cost} Rs.</p>
-        {props.cake.tag && <p>{props.cake.tag}</p>}
-    </Card>
+  var data = {
+    name: props.data.name,
+    price: props.data.price,
+    image: props.data.image,
+    cakeid: props.data.cakeid,
+  };
+  console.log("data from cake")
+  console.log(data)
+  var navigate = useNavigate();
+  function handleDetailCard(e) {
+    navigate("/cakeDetail", { state: { data: data } });
+  }
+  return (
+    <Space direction="horizontal" size={16}>
+      <Card.Grid hoverable style={{ width: 300 }}>
+            <Link to={"/cakeDetail/"+data.cakeid}><Image
+          preview={false}
+          src={data.image}
+          width={300}
+          onClick={handleDetailCard}
+        ></Image></Link>
+        <p>{data.name}</p>
+        <p>{data.price}</p>
+        <p>{data.description}</p>
+      </Card.Grid>
     </Space>
-)
-    }
-    console.log("tag is",tag.props.children)
-
+  );
 }
-
 export default Cake;

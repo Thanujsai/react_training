@@ -1,0 +1,5 @@
+nested routing is routing inside one route
+/checkout -> route
+/checkout/address -> route inside of route
+
+nested route comes inside another route

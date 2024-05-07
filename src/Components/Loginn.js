@@ -7,31 +7,31 @@ const { TextArea } = Input;
 var user={}
 
 function Loginn() {
-    var [userName,setUserName] = useState("");
-    var [passWord,setPassword] = useState("");
+    var [email,setEmail] = useState("");
+    var [password,setPassword] = useState("");
     var navigate = useNavigate();//to navigate to other pages
     var [error,setError] = useState("")
 
-    var email = "thanuj.sai14301@gmail.com"
     function LoginApi(){
         console.log("user is",user)
         axios({
             url:"http://apibyauw.eu-4.evennode.com/api"+"/login",
             method:"post",
-            data:{userName,passWord}
+            data:{email,password}
         }).then((response) => {
             // setCakes(response.data.data)
             console.log("response coming from login api ",response.data.data)
+            navigate("/bakery")
         }, (error) => {
             console.log("error from login api",error)
         })
     }
-    function changeUsername(e){
+    function changeEmail(e){
         console.log("event")
         var a = e.target.value;
-        user.name=a;
+        user.email=a;
         console.log(a)
-        setUserName(a)
+        setEmail(a)
     }
 
     function changePassword(e){
@@ -43,11 +43,11 @@ function Loginn() {
     }
 
     function click(){
-        console.log("username is",userName)
-        console.log(userName)
-        if(userName == 'thanuj' && passWord == 'thanuj'){
+        console.log("email is",email)
+        console.log(email)
+        if(email == 'thanuj.sai14301@gmail.com' && password == 'thanuj'){
             console.log("in success")
-            navigate("/success")
+            navigate("/bakery")
         }
         else{
             console.log("in error")
@@ -65,10 +65,10 @@ function Loginn() {
     <div>
         
         {error == 'Invalid credentials' && <Alert type="error" message={error}/>}
-        <input placeholder="UserName" type="text" onChange={changeUsername}></input><br></br>
+        <input placeholder="Email" type="text" onChange={changeEmail}></input><br></br>
         <input placeholder="Password" type="password" onChange={changePassword}></input><br></br><br></br>
-        <Button onClick={click}>Login</Button>
-        <Button onClick={LoginApi}>Hit API</Button>
+        <Button onClick={LoginApi}>Login</Button>
+        {/* <Button onClick={LoginApi}>Hit API</Button> */}
         <Link to="/forgot"><Button>Forgot</Button></Link>
     </div>
   )

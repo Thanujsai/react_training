@@ -50,7 +50,7 @@ function Datatable({data,deleteUser,editUser}){//data is array of jsons[{},{}]
             <>
             <h1>is open {isOpen}</h1>
             <Button onClick={() => {deleteUser(index)}}>Delete</Button>
-            <Link to="/edit"><Button onClick={() => {editUser(index)}}>Edit</Button></Link>
+            <Link to="/edit"><Button onClick={() => {editUser(index)}}>Edit</Button></Link>{/* when we want to pass an argument to onclick fn we must use arrow functions or bind*/}
             <div>
             {/* <Button onClick={() => {handleClick()}} >Edit</Button> */}
             {/* {isOpen && Form()} */}
