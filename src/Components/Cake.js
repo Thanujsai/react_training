@@ -25,7 +25,7 @@ function Cake(props) {
           onClick={handleDetailCard}
         ></Image></Link>
         <p>{data.name}</p>
-        <p>{data.price}</p>
+        <p>₹ {data.price}</p>
         <p>{data.description}</p>
       </Card.Grid>
     </Space>

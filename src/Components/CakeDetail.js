@@ -98,7 +98,7 @@ export default function CakeDetail() {
         />
         <p>Name : {cakedetails.name}</p>
         <p>Price : {cakedetails.price}</p>
-        <p>Description : {cakedetails.cakeid}</p>
+        <p>Description : {cakedetails.description}</p>
         <Button style={{ float: "center", marginRight: "10px" }}>
           Add to Cart
         </Button>
