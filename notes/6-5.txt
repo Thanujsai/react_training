@@ -1,0 +1,30 @@
+axios() is a function call which may take some time
+but js is asychronous that it is non blocking it will go to next line without the completion of the fn
+
+var response = axios()//no because response will come sometime later    but js will move to the next line so response will be undefined
+
+these functions res
+
+useEffect calls the function after component is successfully rendered or mounted
+
+empty braces mean the function will be clled only on render but not on re rendering
+when we update the state the component is again rendered but that fn will not be called at that time because of empty braces
+
+var [x,setX] = useState();
+
+    useEffect(() => {
+        getCakeList()
+    },[x]) => whenever x is changed the method getCakeList will be called
+
+for paramters first define parameterized route
+
+but now comes query string can be sent to any routes
+
+/route?firstname=thanuj&lastname=sai&age=23&experience=2
+question means query string
+
+for accepting strings we do not need to modify the routes
+
+but for parameters we must define one parameterized route first
+
+when correct creds are given in login nav to home page cakes

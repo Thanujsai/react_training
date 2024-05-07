@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import {Input,Button,Alert} from 'antd'
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const { TextArea } = Input;
+var user={}
 
 function Loginn() {
     var [userName,setUserName] = useState("");
@@ -10,9 +12,24 @@ function Loginn() {
     var navigate = useNavigate();//to navigate to other pages
     var [error,setError] = useState("")
 
+    var email = "thanuj.sai14301@gmail.com"
+    function LoginApi(){
+        console.log("user is",user)
+        axios({
+            url:"http://apibyauw.eu-4.evennode.com/api"+"/login",
+            method:"post",
+            data:{userName,passWord}
+        }).then((response) => {
+            // setCakes(response.data.data)
+            console.log("response coming from login api ",response.data.data)
+        }, (error) => {
+            console.log("error from login api",error)
+        })
+    }
     function changeUsername(e){
         console.log("event")
         var a = e.target.value;
+        user.name=a;
         console.log(a)
         setUserName(a)
     }
@@ -20,6 +37,7 @@ function Loginn() {
     function changePassword(e){
         console.log("event")
         var a = e.target.value;
+        user.passWord = a;
         console.log(a)
         setPassword(a)
     }
@@ -50,6 +68,7 @@ function Loginn() {
         <input placeholder="UserName" type="text" onChange={changeUsername}></input><br></br>
         <input placeholder="Password" type="password" onChange={changePassword}></input><br></br><br></br>
         <Button onClick={click}>Login</Button>
+        <Button onClick={LoginApi}>Hit API</Button>
         <Link to="/forgot"><Button>Forgot</Button></Link>
     </div>
   )

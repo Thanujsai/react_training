@@ -30,6 +30,7 @@ import TryNavigate from './Components/TryNavigate';
 import Bakery from './Components/Bakery';
 import CakeDetail from './Components/CakeDetail';
 import Cart from './Components/Cart';
+import Search from './Components/Search';
 
 function App() {
   var name = "Thanuj Sai"
@@ -94,6 +95,7 @@ function App() {
           <Route path='/cakeDetail/:name' element={<CakeDetail />}></Route>
           <Route path='/bakery' element={<Bakery />}></Route>
           <Route path='/cart' element={<Cart />}></Route>
+          <Route path='/search' element={<Search />}></Route>
           
         </Routes>
       </BrowserRouter>

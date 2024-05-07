@@ -1,8 +1,27 @@
 import Cake from './Cake'
 import { Link } from 'react-router-dom/dist';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { Button } from 'antd';
 
 var cake;
 function CakeList(){
+
+    var[cakes,setCakes] = useState();
+    useEffect(() => {
+        getCakeList()
+    },[])//when we update the state the component is again rendered but that fn will not be called at that time because of empty braces
+    function getCakeList(){
+        axios({
+            url:"http://apibyauw.eu-4.evennode.com/api"+"/allcakes",
+            method:"get"
+        }).then((response) => {
+            setCakes(response.data.data)
+            console.log("response coming from all cakes api ",response.data.data)
+        }, (error) => {
+            console.log("error from all cakes api",error)
+        })
+    }
     cake = [{name:"hi", cost:"1000", image:"https://m.media-amazon.com/images/I/418zBNWoVnS._AC_UF1000,1000_QL80_.jpg", tag:"Bestseller"},
     {name:"chocolate-cake", cost:"1000", image:"https://st4.depositphotos.com/10614052/25239/i/450/depositphotos_252391082-stock-photo-sweet-chocolate-cake-on-wooden.jpg", tag:"Must try"},
     {name:"butterscotch-cake", cost:"1000", image:"https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"},
@@ -40,6 +59,7 @@ function CakeList(){
             {cake.map((cakeItem) => (
                 <Link to={`/cakeDetail/${cakeItem.name}`} key={cakeItem.name}><Cake cake={cakeItem} /></Link>
             ))}
+            <Button onClick={getCakeList} type="primary">Get Cake List</Button>
         </div>
         </row>
   </>
