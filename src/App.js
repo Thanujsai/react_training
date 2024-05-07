@@ -31,6 +31,9 @@ import Bakery from './Components/Bakery';
 import CakeDetail from './Components/CakeDetail';
 import Cart from './Components/Cart';
 import Search from './Components/Search';
+import Checkout from './Components/Checkout';
+import Address from './Components/Address';
+import Pagenotfound from './Components/Pagenotfound';
 
 function App() {
   var name = "Thanuj Sai"
@@ -96,6 +99,10 @@ function App() {
           <Route path='/bakery' element={<Bakery />}></Route>
           <Route path='/cart' element={<Cart />}></Route>
           <Route path='/search' element={<Search />}></Route>
+          <Route path='/checkout' element={<Checkout />}>
+            {/* <Route path='/address' element={<Address />}></Route> */}
+          </Route>
+          <Route path='/*' element={<Pagenotfound />}></Route>{/*if the page is not found it navigates user here*/}
           
         </Routes>
       </BrowserRouter>

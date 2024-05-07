@@ -1,5 +1,5 @@
 import React from 'react'
-import {CakeList} from './CakeList'
+import CakeList from './CakeList'
 
 function Bakery() {
   return (
