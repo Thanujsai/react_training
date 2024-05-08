@@ -1,0 +1,52 @@
+only components and hooks can use the state, whenever there is any change in data or error the component will be re-rendered
+
+whenever any change occurs the hook is called again and the component will be re rendered again
+
+update only happens when state is involved, state cannot used inside fn therefore using a hook****
+
+export function useApi(){
+    var [data,setdata] = useState(0)
+    axios().then(() => {
+        setData(200)
+    })
+    return data;
+}
+
+export function getApi(){
+    var data
+    axios().then(() => {
+        setData(200)
+    })
+    return data;
+}
+
+if we use hook we dont have to call the fn again andagain, whenever the state in the hook is updated the hook return the data automatically, using state the fn calls itself again and again
+
+wherever we need state, we need hook
+
+in order to render only the element which is changed
+
+var defectedlabel = useRef()
+
+<label ref={defectedlabel}>//this particular component re-renders whenever defectedlabel is changed
+
+ref captures the actual element
+
+we can do anythin with that element using js
+
+
+var user = "Thanuj"
+
+function checkAssignment(){}
+useMemo(checkAssignment.[user])//if a fn is already called on Thanuj, it will not be called again on that particular object
+useMemo is a react hook that lets you cache the result, skipping expensive recalculations, it memorizes the values
+
+useMemo(() => processItems(items),[items]) => if items array is altered will it be called again?
+
+memoizing -> in order to overcome extensive calculations we store the values till a value
+
+With useMemo, React can store the result of a function call and reuse it when the dependencies of that function haven't changed, rather than recalculating the value on every render.\
+Normally, React recalculates this function every time your component renders, even if the inputs are the same. That can slow things down.
+
+
+only when user is logged in he should be able to go to cart, other wise navigate to login page again

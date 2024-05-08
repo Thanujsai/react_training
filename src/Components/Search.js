@@ -46,7 +46,7 @@ export default function Searchcakes(){
             );
         })
     }
-    {loading && matchedCakes.length == 0 && <h1>Cakes not found for the name : {name}</h1>}
+    {!matchedCakes && matchedCakes.length == 0}
     </>);
 
 }

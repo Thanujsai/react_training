@@ -2,58 +2,9 @@
 // // import { cake } from './CakeList';
 // import { Image, Card, Space, Button } from 'antd';
 import { Link } from 'react-router-dom/dist';
-
-// function CakeDetail(params) {
-//     const currentUrl = window.location.href;
-//     console.log('current url is ',currentUrl)
-//     const parts = currentUrl.split("/");
-//     console.log(parts)
-//     console.log(parts[parts.length - 1])
-//     console.log("params")
-//     console.log(params)
-//     console.log("cake")
-//     console.log(cake);
-
-//     var requiredCake = parts[parts.length - 1];
-//     console.log('required cake',requiredCake)
-//     var imgSrc,name,cost;
-//     for (let i = 0; i < cake.length; i++) {
-//         if (cake[i].name === requiredCake) {
-//             imgSrc = cake[i].image;
-//             name = cake[i].name;
-//             cost = cake[i].cost;
-//             break;
-//         }
-//     }
-//     console.log("cake image")
-//     console.log(imgSrc)
-//   return (
-//     <>
-//     <div>CakeDetail</div>
-//     <br></br><br></br><br></br><br></br>
-//     <div style={{ display: 'flex' }}>
-//   <div style={{ flex: 1 }}>
-//   <Card style={{ width: 550, height:550 }}>
-//             <Image preview={true} src={imgSrc} width={450}></Image>
-//             {/* <p>{props.cake.name}</p>
-//             <p>Cost : {props.cake.cost} Rs.</p> */}
-//     </Card>
-//   </div>
-//   <div style={{ flex: 1 }}>    <p>{name}</p>
-//     <p>{cost} Rs.</p>
-//     <Link to={{
-//             pathname: '/cart',
-//             state: { imgSrc, name, cost }
-//           }}><Button>Buy Now</Button></Link>
-//     </div>
-// </div>
+import { useNavigate } from 'react-router-dom/dist';
 
 
-
-
-//     </>
-//   )
-// }
 
 
 import axios from "axios";
@@ -63,6 +14,7 @@ import { Image, Spin, Card, Space, Button } from 'antd';
 
 export default function CakeDetail() {
   var params = useParams();
+  var navigate = useNavigate();
   console.log("Params")
   console.log(params)
   console.log(params.name)
@@ -85,7 +37,34 @@ export default function CakeDetail() {
     return <Spin />
 }
 
-
+var data={};
+function addToCart(){
+  axios({
+  url: "http://apibyauw.eu-4.evennode.com/api/addcaketocart",
+  method: "post",
+  data: {
+    cakeid: cakedetails.cakeid,
+    name: cakedetails.name,
+    price: cakedetails.price,
+    image: cakedetails.image,
+    weight: cakedetails.weight
+  },
+  headers: {
+    Authorization: localStorage.token
+  }
+}).then((response) => {
+    setCakedetails(response.data.data);
+    // alert('Added to cart');
+    console.log("data in response")
+    console.log(cakedetails)
+    localStorage.setItem("cakeid",cakedetails.cakeid)
+    console.log("local storage");
+    console.log(localStorage.getItem(cakedetails.cakeid))
+    navigate('/cart');
+}, (error) => {
+  console.log('Error from API', error);
+})
+}
   console.log('cake details')
   console.log(cakedetails)
   return (
@@ -99,8 +78,8 @@ export default function CakeDetail() {
         <p>Name : {cakedetails.name}</p>
         <p>Price : {cakedetails.price}</p>
         <p>Description : {cakedetails.description}</p>
-        {/* <Link to="/cart/:cakedetails.cakeid"> */}
-          <Button style={{ float: "center", marginRight: "10px" }}>
+        {/* <Link to={"/cart/"+cakedetails.cakeid}> */}
+          <Button style={{ float: "center", marginRight: "10px" }} onClick={addToCart}>
           Add to Cart
         </Button>
         {/* </Link> */}
