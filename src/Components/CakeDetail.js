@@ -54,7 +54,7 @@ function addToCart(){
   }
 }).then((response) => {
     setCakedetails(response.data.data);
-    // alert('Added to cart');
+    alert('Added to cart');
     console.log("data in response")
     console.log(cakedetails)
     localStorage.setItem("cakeid",cakedetails.cakeid)
