@@ -156,6 +156,8 @@ export default function Login() {
 
   // variable student is created JSON Object
   var user = {};
+  var notAuthorized = false;
+  var check = false;
 
   var navigate = useNavigate();
 
@@ -168,6 +170,17 @@ export default function Login() {
       console.log('Login successfull', response);
       localStorage.token = response.status === 200 ? response.data.token : null;
       if (response.status === 200) navigate('/bakery');
+      else{
+        console.log("in else")
+        notAuthorized = true;
+        check = true;
+        console.log("not authorized",notAuthorized)
+        return(
+          <>
+          <h1>User not found</h1>
+          </>
+        )
+      }
     }, (error) => {
       Alert('Invalid Credentials');
       localStorage.token = null;
@@ -200,6 +213,7 @@ export default function Login() {
       <br />
       <Link to='/signup'><Button type="primary">Sign Up</Button></Link>&nbsp;&nbsp;&nbsp;
       <Link to='/forgot'><Button type="primary">Forgot Password?</Button></Link>
+      
       <br />
       <br />
     </>

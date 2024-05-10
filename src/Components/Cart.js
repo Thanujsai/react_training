@@ -76,7 +76,10 @@ function Cart(params) {
       console.log(response)
       console.log(response.data.data)
       setCakecart(response.data.data)
-      // console.log(cartCakeIds)
+      console.log("cakecart is : ")
+      console.log(cakecart)
+      console.log("token is")
+      console.log(localStorage.token)
     });
   }, []);
 
@@ -90,6 +93,7 @@ function Cart(params) {
     <div>Cart</div>
     <div>
     {/* <p>{localStorage}</p> */}
+    {console.log(cakecart)}
     <Table
                 dataSource={cakecart}
                 columns={columns}

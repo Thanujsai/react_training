@@ -16,12 +16,14 @@ function Cake(props) {
     navigate("/cakeDetail", { state: { data: data } });
   }
   return (
-    <Space direction="horizontal" size={16}>
-      <Card.Grid hoverable style={{ width: 300 }}>
+    <Space direction="horizontal" size={16} style={{paddingTop:"50px"}}>
+      <Card.Grid hoverable style={{ width: 250,
+        height:250,
+        margin:20 }}>
             <Link to={"/cakeDetail/"+data.cakeid}><Image
           preview={false}
           src={data.image}
-          width={300}
+          width={250}
           onClick={handleDetailCard}
         ></Image></Link>
         <p>{data.name}</p>
