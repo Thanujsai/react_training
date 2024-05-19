@@ -148,9 +148,11 @@
 // //   )
 // // }
 
-import { Alert, Button } from "antd";
+import { Alert, Button, Input } from "antd";
 import axios from "axios";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Eye , EyeOff} from 'lucide-react';
 
 export default function Login() {
 
@@ -158,8 +160,12 @@ export default function Login() {
   var user = {};
   var notAuthorized = false;
   var check = false;
+  const [password,setPassword] = useState(true);
 
   var navigate = useNavigate();
+  const handleClick = () => {
+    setPassword(!password);
+  }
 
   function loginUser() {
     axios({
@@ -203,11 +209,19 @@ export default function Login() {
 
   return (
     <>
-      Email: <input type="text" placeholder="Email" onChange={handleEmail}></input>
+      Email: <Input type="text" placeholder="Email" onChange={handleEmail}></Input>
       <br />
-      Password: <input type="password" placeholder="Password" onChange={handlePassword}></input>
-      <br />
-      <br />
+      <div className="flex items-center justify-center">
+        Password: <Input type={password ? "password" : "text"} placeholder="Password" onChange={handlePassword} />
+        <span class="p-viewer">
+					<i class="fa fa-eye" aria-hidden="true"></i>
+				</span>
+        <div className="-m1-10 cursor-pointer">
+          {password ? <Eye onClick={handleClick}/> : <EyeOff onClick={handleClick}/>}
+        </div>
+        <br />
+        <br />
+      </div>
       <Button onClick={loginUser} type="primary">Login</Button>
       <br />
       <br />
