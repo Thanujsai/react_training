@@ -68,12 +68,13 @@ function addToCart(){
   console.log('cake details')
   console.log(cakedetails)
   return (
-    <div Style="text-align:center;">
+    <div Style="text-align:center; margin:20px">
         <Image
           preview={true}
           src={cakedetails.image}
           width={300}
-          style={{ float: "left", marginRight: "10px" }}
+          margin={20}
+          style={{ float: "left"}}
         />
         <p>Name : {cakedetails.name}</p>
         <p>Price : {cakedetails.price}</p>
